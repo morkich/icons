@@ -14,6 +14,10 @@
     $: iconsData = $iconsDataDisplayStore;
 </script>
 
+<svelte:head>
+    <title>Download icons page</title>
+</svelte:head>
+
 <div class="container">
     <Header />
     <IconList {iconsData}/>
