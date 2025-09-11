@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-    <title>Download icons page</title>
+    <title>Download icons</title>
 </svelte:head>
 
 <div class="container">
