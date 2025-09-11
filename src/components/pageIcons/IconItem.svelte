@@ -24,10 +24,6 @@
             value = `data:image/svg+xml;base64,${base64}`;
         }
 
-        if(menuValue == "php") {
-            value = `\lib_helpers_SvgIcons\SvgIcons::getIcon('${iconKey}')`;
-        }
-
         if(menuValue == "svg") {
             value = iconWrapped;
         }

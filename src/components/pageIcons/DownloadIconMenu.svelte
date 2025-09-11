@@ -21,7 +21,6 @@
     <div class="menu" transition:slide>
         <button class="menuItem" on:click={clickMenuHandle} value='svg'>svg</button>
         <button class="menuItem" on:click={clickMenuHandle} value='base64'>base64</button>
-        <button class="menuItem" on:click={clickMenuHandle} value='php'>php</button>
     </div>
     {/if}
 </div>
