@@ -2,26 +2,60 @@
     import { slide } from "svelte/transition";
 
     export let isShowContextMenu = false;
-    export let menuValue = 'svg';
+    export let menuValue = "svg";
+    export let id = "";
+
+    let reference = {};
 
     const clickMenuHandle = (event) => {
         menuValue = event.target.value;
+        closeMenuHandler();
+    };
+
+    const openMenuHandler = () => {
+        isShowContextMenu = true;
+    };
+
+    const closeMenuHandler = () => {
         isShowContextMenu = false;
-    }
+    };
 
     const toggleShowMenuHandle = () => {
-        isShowContextMenu = !isShowContextMenu
-    }
+        isShowContextMenu ? closeMenuHandler() : openMenuHandler();
+    };
+
+    const closeAllDropDownsHandler = (event) => {
+        const { icon_id } = event.detail.dataset;
+
+        if (!icon_id) {
+            closeMenuHandler();
+            return false;
+        }
+
+        if (reference.dataset.icon_id == icon_id) return false;
+        closeMenuHandler();
+    };
 </script>
+
+<svelte:document on:closeAllDropDowns={closeAllDropDownsHandler} />
 
 <div class="downloadIconMenu">
     <!-- svelte-ignore a11y_consider_explicit_label -->
-    <button class="openMenuButton" on:click={toggleShowMenuHandle}></button>
+    <button
+        class="openMenuButton"
+        on:click={toggleShowMenuHandle}
+        bind:this={reference}
+        data-icon_id={id}
+    ></button>
     {#if isShowContextMenu}
-    <div class="menu" transition:slide>
-        <button class="menuItem" on:click={clickMenuHandle} value='svg'>svg</button>
-        <button class="menuItem" on:click={clickMenuHandle} value='base64'>base64</button>
-    </div>
+        <div class="menu" transition:slide>
+            <button class="menuItem" on:click={clickMenuHandle} value="svg"
+                >svg</button
+            >
+            <button class="menuItem" on:click={clickMenuHandle} value="base64"
+                >base64</button
+            >
+        </div>
     {/if}
 </div>
 
@@ -49,7 +83,7 @@
         position: absolute;
         /* bottom: calc(100% + 5px); */
         bottom: 100%;
-        box-shadow: 0px 7px 13px 2px rgba(0, 0, 0, .2);
+        box-shadow: 0px 7px 13px 2px rgba(0, 0, 0, 0.2);
         background-color: #fff;
         border-radius: 4px;
         padding: 0;
@@ -65,10 +99,10 @@
 
         text-align: left;
         padding: 5px 10px;
-        transition: .2s;
+        transition: 0.2s;
     }
 
     .menuItem:hover {
-        filter: brightness(.9);
+        filter: brightness(0.9);
     }
 </style>

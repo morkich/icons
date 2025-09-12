@@ -68,7 +68,7 @@
     {/if}
 
     <div class="downloadMenu">
-        <DownloadIconMenu bind:menuValue bind:isShowContextMenu />
+        <DownloadIconMenu bind:menuValue bind:isShowContextMenu id={iconKey} />
     </div>
 
     <button class="iconItem__button">

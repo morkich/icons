@@ -12,7 +12,16 @@
     })
 
     $: iconsData = $iconsDataDisplayStore;
+
+    const clickOverlayEventsHandler = (event) => {
+        const options = {detail: event.target};
+        const closeDropDownEvent = new CustomEvent('closeAllDropDowns', options);
+        document.dispatchEvent(closeDropDownEvent);
+    }
+
 </script>
+
+<svelte:document on:click={clickOverlayEventsHandler} />
 
 <svelte:head>
     <title>Download icons</title>
