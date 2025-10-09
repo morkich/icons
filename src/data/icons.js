@@ -551,4 +551,10 @@ export const icons = {
         viewBox: [0, 0, 200, 200],
         tags: ['dots', 'preloader', 'loader', 'animate'],
     },
+    'dot': {
+        svg:
+            '<circle fill="#6BA7FF" stroke="#6BA7FF" stroke-width="9" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle>',
+        viewBox: [0, 0, 200, 200],
+        tags: ['dot', 'preloader', 'loader', 'animate'],
+    }
 };
