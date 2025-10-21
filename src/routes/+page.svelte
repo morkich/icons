@@ -1,14 +1,17 @@
 <script>
     import { onMount } from "svelte";
-    import { icons } from "../data/icons";
+    // import { icons } from "../data/icons";
     import IconList from "../components/pageIcons/IconList.svelte";
     import Header from "../components/blocks/Header.svelte";
     import Footer from "../components/blocks/Footer.svelte";
     import { iconsDataDisplayStore, initIconDataStoreThunk } from "../stores/iconsStore";
 
+    export let data;
+
     let iconsData = {};
+
     onMount(() => {
-        initIconDataStoreThunk(icons)
+        if(data.iconsData) initIconDataStoreThunk(data.iconsData)
     })
 
     $: iconsData = $iconsDataDisplayStore;

@@ -38,8 +38,7 @@
     };
 
     const getWrappedIcon = (iconItem, color) => {
-        const viewBoxData = iconItem.viewBox.join(" ");
-        return `<svg xmlns='http://www.w3.org/2000/svg' fill='${color}' viewBox='${viewBoxData}'>${iconItem.svg}</svg>`;
+        return `<svg xmlns='http://www.w3.org/2000/svg' fill='${color}' viewBox='${iconItem.view_box_string}'>${iconItem.svg_string}</svg>`;
     };
 
     const enterMouseHandle = () => {

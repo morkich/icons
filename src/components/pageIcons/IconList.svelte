@@ -9,8 +9,9 @@
 
 <WhiteRoundBlock>
     <div class="iconList" style:grid-template-columns={`repeat(auto-fill, minmax(${iconBlockSize}px, 1fr))`}>
-        {#each Object.keys(iconsData) as iconKey}
-            <IconItem iconItem={iconsData[iconKey]} {iconKey} {iconBlockSize}/>
+        {#each iconsData as iconItem, index}
+        <!-- {#each Object.keys(iconsData) as iconKey} -->
+            <IconItem {iconItem} iconKey={iconItem.name} {iconBlockSize}/>
         {/each}
     </div>
 </WhiteRoundBlock>
